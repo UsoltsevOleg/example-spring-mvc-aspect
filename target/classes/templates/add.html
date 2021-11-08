@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>Add new engine</title>
+</head>
+
+<body>
+<h1>Add new engine</h1>
+<p th:text="${addedText}"></p>
+<form method="POST" action="/hwSpring/mvc/add">
+    <p>Enter engine fuel
+        <input type="text" size="40" fuel="fuel">
+    </p>
+    <input type="submit" value="Add"/>
+</form>
+
+<br/>
+<br/>
+<a href="/hwSpring/mvc/show">Show engines</a>
+</body>
+</html>
