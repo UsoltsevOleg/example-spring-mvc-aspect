@@ -18,7 +18,11 @@ public class FuelExceptionAspect {
 
     @AfterThrowing("callAtAnnotatedMethods()")
     public void sendMessage() {
-        System.out.println("Что-то пошло не так");
+        try {
+            throw new Exception();
+        } catch(Exception e) {
+            System.out.println("Что-то пошло не так");
+        }
     }
 }
 
