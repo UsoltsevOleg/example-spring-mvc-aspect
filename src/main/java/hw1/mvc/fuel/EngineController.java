@@ -1,5 +1,10 @@
-package hw1.mvc;
+package hw1.mvc.fuel;
 
+import hw1.aspect.FuelExceptionHandle;
+import hw1.mvc.Diesel;
+import hw1.mvc.EngineStorage;
+import hw1.mvc.EngineType;
+import hw1.mvc.Petrol;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -11,13 +16,17 @@ public class EngineController {
 
     @PostConstruct
     private void postConstruct() {
-        EngineStorage.getEngines().add(new Petrol("бензин"));
-        EngineStorage.getEngines().add(new Diesel("дизельное топливо"));
+        EngineStorage.getEngines().add(new Petrol());
+        EngineStorage.getEngines().add(new Diesel());
     }
 
+    @FuelExceptionHandle
     @RequestMapping(method = RequestMethod.GET)
-    public String example() {
-        return "example";
+    public void fuelType() {
+
+
+        if (EngineStorage.getEngines().getType() == EngineType.PETROL) new Petrol().powerUp();
+        //else if (EngineType.DIESEL) new Diesel().powerUp();
     }
 
     @GetMapping("show")
@@ -31,11 +40,12 @@ public class EngineController {
         return "add";
     }
 
+    /*
     @PostMapping("add")
-    public String addPost(@RequestParam("fuel") String fuel, Model model) {
-        EngineStorage.getEngines().add(new Petrol(fuel));
-        EngineStorage.getEngines().add(new Diesel(fuel));
+    public String addPost(@RequestParam(fuel) String fuel, Model model) {
+        EngineStorage.getEngines().add(new Petrol());
+        EngineStorage.getEngines().add(new Diesel());
         model.addAttribute("engines", EngineStorage.getEngines());
         return "show";
-    }
+    } */
 }

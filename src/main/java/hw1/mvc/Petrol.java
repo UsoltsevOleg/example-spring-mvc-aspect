@@ -3,16 +3,19 @@ package hw1.mvc;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
-@Data
+@Component
 @NoArgsConstructor
-@AllArgsConstructor
 public class Petrol implements Engine {
 
-    private String fuel;
+    @Override
+    public String powerUp() {
+        return "Данный двигатель использует бензин";
+    }
 
     @Override
-    public void powerUp() {
-        System.out.println("Данный двигатель использует " + fuel);
+    public EngineType getType() {
+        return  EngineType.PETROL;
     }
 }
