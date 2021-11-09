@@ -1,6 +1,9 @@
+hw1\aspect\FuelExceptionHandle.class
+hw1\aspect\FuelExceptionAspect.class
 hw1\mvc\Diesel.class
+hw1\mvc\fuel\EngineController.class
 hw1\mvc\EngineStorage.class
+hw1\mvc\EngineType.class
 hw1\mvc\Engine.class
 hw1\mvc\MVCConfiguration.class
 hw1\mvc\Petrol.class
-hw1\mvc\EngineController.class
